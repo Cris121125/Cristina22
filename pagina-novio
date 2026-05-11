@@ -1,31 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Meses Juntos 💚</title>
 
-<audio autoplay loop id="musica">
-  <source src="AQUI_PEGA_EL_LINK_MP3_DE_LA_CANCION" type="audio/mp3">
-</audio>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
 
-<div class="card">
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      background: linear-gradient(135deg, #56ab2f, #0f9b8e);
+    }
 
-  <h1>Felices 6 Meses 💚</h1>
+    .card{
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding:40px;
+      border-radius:25px;
+      width:90%;
+      max-width:650px;
+      text-align:center;
+      color:white;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation: aparecer 1.5s ease;
+    }
 
-  <p class="fecha">11/11/2025 ♾️ 11/05/2026</p>
+    h1{
+      font-size:3rem;
+      margin-bottom:10px;
+    }
 
-  <p>Miamor,</p>
+    .fecha{
+      margin-bottom:20px;
+      opacity:0.9;
+    }
 
-  <p>
-    Hoy hacemos 6 meses juntitooss y quería recordarte lo muchísimo que te amo.
-    Graciaass x cada momento, cada riisaa y cada díaa a tu ladoo.
-  </p>
+    p{
+      font-size:1.2rem;
+      line-height:1.8;
+      margin-bottom:15px;
+    }
 
-  <p>
-    Eres lo mjr q me ha pasado y espero seguir creando hermososs recuerdos a tu ladoo.
-  </p>
+    .heart{
+      font-size:4rem;
+      margin-top:15px;
+      animation: latido 1s infinite;
+    }
 
-  <p>
-    Te amo muchichichimoo 🧸💚♾️💚🧸
-  </p>
+    button{
+      margin-top:20px;
+      padding:12px 25px;
+      border:none;
+      border-radius:30px;
+      background:white;
+      color:#0f9b8e;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-  <div class="heart">💚</div>
+    button:hover{
+      transform:scale(1.05);
+    }
 
-  <button onclick="mostrarMensaje()">Pulsa aquí</button>
+    @keyframes latido{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.2);}
+      100%{transform:scale(1);}
+    }
 
-</div>
+    @keyframes aparecer{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .falling-heart{
+      position:absolute;
+      color:rgba(255,255,255,0.7);
+      animation:caer linear infinite;
+    }
+
+    @keyframes caer{
+      from{
+        transform:translateY(-100px);
+      }
+      to{
+        transform:translateY(110vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Música -->
+  <audio autoplay loop>
+    <source src="AQUI_PEGA_EL_LINK_MP3_DE_LA_CANCION" type="audio/mp3">
+  </audio>
+
+  <div class="card">
+
+    <h1>Felices 6 Meses 💚</h1>
+
+    <p class="fecha">11/11/2025 ♾️ 11/05/2026</p>
+
+    <p>Miamor,</p>
+
+    <p>
+      Hoy hacemos 6 meses juntitooss y quería recordarte lo muchísimo que te amo.
+      Graciaass x cada momento, cada riisaa y cada díaa a tu ladoo.
+    </p>
+
+    <p>
+      Eres lo mjr q me ha pasado y espero seguir creando hermososs recuerdos a tu ladoo.
+    </p>
+
+    <p>
+      Te amo muchichichimoo 🧸💚♾️💚🧸
+    </p>
+
+    <div class="heart">💚</div>
+
+    <button onclick="mostrarMensaje()">Pulsa aquí</button>
+
+  </div>
+
+  <script>
+
+    function mostrarMensaje(){
+      alert("Y ojalá sean muchísimos meses más contigo mi niño 💚♾️");
+    }
+
+    // Corazones cayendo
+    for(let i = 0; i < 35; i++){
+
+      let heart = document.createElement("div");
+
+      heart.classList.add("falling-heart");
+
+      heart.innerHTML = "💚";
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+      document.body.appendChild(heart);
+    }
+
+  </script>
+
+</body>
+</html>
